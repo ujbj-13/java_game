@@ -1,26 +1,14 @@
-import javax.swing.*;
-import java.awt.*;
-
-public class Shot extends JPanel implements Runnable {
-    public boolean getWhetherSurvival() {
-        return whetherSurvival;
-    }
-
-    public void setWhetherSurvival(boolean whetherSurvival) {
-        this.whetherSurvival = whetherSurvival;
-    }
-
+public class Shot implements Runnable {
     private int x;
     private int y;
-    private int direction;
+    private int direct;
     private int speed = 2;
+    private boolean isLive = true;
 
-    private boolean whetherSurvival = true;
-
-    public Shot(int x, int y, int direction) {
+    public Shot(int x, int y, int direct) {
         this.x = x;
         this.y = y;
-        this.direction = direction;
+        this.direct = direct;
     }
 
     public int getX() {
@@ -39,12 +27,12 @@ public class Shot extends JPanel implements Runnable {
         this.y = y;
     }
 
-    public int getDirection() {
-        return direction;
+    public int getDirect() {
+        return direct;
     }
 
-    public void setDirection(int direction) {
-        this.direction = direction;
+    public void setDirect(int direct) {
+        this.direct = direct;
     }
 
     public int getSpeed() {
@@ -55,45 +43,43 @@ public class Shot extends JPanel implements Runnable {
         this.speed = speed;
     }
 
+    public boolean getIsLive() {
+        return isLive;
+    }
+
+    public void setIsLive(boolean live) {
+        isLive = live;
+    }
 
     @Override
     public void run() {
+        System.out.println("子弹线程开启...");
+
+        System.out.println("x = " + x + "\t" + "y = " + y);
+
+
         while (true) {
+
             try {
                 Thread.sleep(50);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
 
-            switch (direction) {
-                case 0 -> {
-                    y -= speed;
-                }
-                case 1 -> {
-                    y += speed;
-                }
-                case 2 -> {
-                    x -= speed;
-                }
-                case 3 -> {
-                    x += speed;
-                }
+            switch (direct) {
+                case 0 -> y -= speed;
+                case 1 -> y += speed;
+                case 2 -> x -= speed;
+                case 3 -> x += speed;
             }
 
-            System.out.println("x = " + x + "\ty = " + y);
+            System.out.println("x = " + x + "\t" + "y = " + y);
 
-            if (x > 1000 || x < 0 || y > 750 || y < 0) {
-                whetherSurvival = false;
+            if (!(x >= 0 && x <= 800 && y >= 0 && y <= 600 && isLive)) {
+                isLive = false;
                 break;
             }
         }
-    }
-
-    @Override
-    public void paint(Graphics g) {
-        super.paint(g);
-
-        g.setColor(Color.ORANGE);
-        g.fillOval(x, y, 2, 2);
+        System.out.println("子弹线程结束...");
     }
 }

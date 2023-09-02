@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/QQClient/QQClient.iml" filepath="$PROJECT_DIR$/QQClient/QQClient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/QQService/QQService.iml" filepath="$PROJECT_DIR$/QQService/QQService.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java_game.iml" filepath="$PROJECT_DIR$/.idea/java_game.iml" />
       <module fileurl="file://$PROJECT_DIR$/pushBoxGame/pushBoxGame.iml" filepath="$PROJECT_DIR$/pushBoxGame/pushBoxGame.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shutdownSequence/shutdownSequence.iml" filepath="$PROJECT_DIR$/shutdownSequence/shutdownSequence.iml" />
       <module fileurl="file://$PROJECT_DIR$/tankGame/tankGame.iml" filepath="$PROJECT_DIR$/tankGame/tankGame.iml" />
+      <module fileurl="file://$PROJECT_DIR$/typingGame/typingGame.iml" filepath="$PROJECT_DIR$/typingGame/typingGame.iml" />
     </modules>
   </component>
 </project>

@@ -1,26 +1,39 @@
 import javax.swing.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.Scanner;
 
 public class TankGame extends JFrame {
-
-    private Panel panel = null;
-
     public static void main(String[] args) {
-        TankGame tankGame = new TankGame();
+        new TankGame();
     }
 
-    public TankGame() {
-        panel = new Panel();
+    Scanner sc = new Scanner(System.in);
+    Panel panel = null;
 
+    public TankGame() {
+        String key = sc.next();
+
+        panel = new Panel(key);
+
+        // 启动线程
         new Thread(panel).start();
 
-        add(panel);
+        this.add(panel);
+        this.addKeyListener(panel);
 
-        addKeyListener(panel);
+        this.setSize(1000, 600);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null); // 使窗口居中
+        this.setResizable(false); // 无法调整框架的大小。
+        this.setVisible(true);
 
-        setTitle("坦克大战v1.0");
-
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(1000, 750);
-        setVisible(true);
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                Recorder.recordFile();
+                System.exit(0);
+            }
+        });
     }
 }

@@ -1,36 +1,9 @@
 public class Tank {
     private int x;
     private int y;
-
-    private int type;
-    private int direct;
-
+    private int direct = 0;
     private int speed = 1;
-
-    public int getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
-    }
-
-    public int getDirect() {
-        return direct;
-    }
-
-    public void setDirect(int direct) {
-        this.direct = direct;
-    }
-
-    public int getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
-
+    boolean isLive = true;
 
     public Tank(int x, int y) {
         this.x = x;
@@ -53,20 +26,43 @@ public class Tank {
         this.y = y;
     }
 
-    // 坦克移动
+    public int getDirect() {
+        return direct;
+    }
+
+    public void setDirect(int direct) {
+        this.direct = direct;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
     public void moveUp() {
-        y -= speed;
+        if (y > 0 + 5) {
+            y -= speed;
+        }
     }
 
     public void moveDown() {
-        y += speed;
+        if (y < 600 - 100 - 5) {
+            y += speed;
+        }
     }
 
     public void moveLeft() {
-        x -= speed;
+        if (x > 0 + 5) {
+            x -= speed;
+        }
     }
 
     public void moveRight() {
-        x += speed;
+        if (x < 800 - 75 - 5) {
+            x += speed;
+        }
     }
 }

@@ -10,7 +10,6 @@ public class PushBox extends JFrame {
 
     // 窗口 900 * 600
     public PushBox() {
-
         map = new Map();
         add(map);
         addKeyListener(map);
