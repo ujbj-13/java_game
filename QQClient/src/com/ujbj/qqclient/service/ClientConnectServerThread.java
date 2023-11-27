@@ -29,6 +29,13 @@ public class ClientConnectServerThread extends Thread {
 
     @Override
     public void run() {
+        // 先休眠 500 毫秒
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
         // 因为Thread需要在后台和服务器通信，因此我们while循环
         while (true) {
             try {

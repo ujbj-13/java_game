@@ -12,8 +12,17 @@ public class UserClientService {
 
     private User u = new User();
     private Socket socket;
-    private final String ip = "172.19.11.13";
+    private static String ip = "122.51.57.13";
+    private static int port = 9898;
+    // inet 10.0.4.11  netmask 255.255.252.0  broadcast 10.0.7.255
+    // 122.51.57.13
 
+    public static void setIP(String setIp) {
+        ip = setIp;
+    }
+    public static void setPort(int setPort) {
+        port = setPort;
+    }
 
     /**
      * 将user对象传入服务端，验证用户是否正确，并等待接收服务端返回的message对
@@ -32,7 +41,7 @@ public class UserClientService {
         // 连接服务器 发送 u 对象
         try {
             // 发送 user 对象
-            socket = new Socket(InetAddress.getByName(ip), 9999);
+            socket = new Socket(InetAddress.getByName(ip), port);
             ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
             oos.writeObject(u);
 

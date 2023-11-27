@@ -107,29 +107,35 @@ public class Map extends JPanel implements KeyListener {
                 Image tempImg = null;
 
                 switch (map[i][j]) {
-                    case WALL -> {
+                    case WALL : {
                         tempImg = wallImg;
+                        break;
                     }
-                    case GOAL -> {
+                    case GOAL : {
                         tempImg = goalImg;
+                        break;
                     }
-                    case BOX -> {
+                    case BOX : {
                         tempImg = boxImg;
+                        break;
                     }
-                    case PLAYER -> {
+                    case PLAYER : {
                         tempImg = playerImg[direction];
 
                         Player.setX(i);
                         Player.setY(j);
+                        break;
                     }
-                    case GOAL_BOX -> {
+                    case GOAL_BOX : {
                         tempImg = goalBoxImg;
+                        break;
                     }
-                    case GOAL_PLAYER -> {
+                    case GOAL_PLAYER : {
                         tempImg = goalPlayerImg[direction];
 
                         Player.setX(i);
                         Player.setY(j);
+                        break;
                     }
                 }
                 g.drawImage(tempImg, i * 50 + mapX, j * 50 + mapY, 50, 50, this);

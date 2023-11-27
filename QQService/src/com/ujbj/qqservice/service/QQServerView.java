@@ -31,22 +31,25 @@ public class QQServerView implements Runnable {
             System.out.print("请选择: ");
             String key = Utility.readString(5);
             switch (key) {
-                case "1" -> {
+                case "1": {
                     announcement();
+                    break;
                 }
-                case "2" -> {
+                case "2": {
                     System.out.print("输入要强制下线的用户: ");
                     String user = Utility.readString(50);
                     QQServer.offLineUser(user);
-
+                    break;
                 }
-                case "3" -> {
+                case "3": {
                     System.out.print("当前在线用户: " + ManageClientThreads.getUserIds() + "\n");
+                    break;
                 }
-                case "0" -> {
+                case "0": {
                     System.out.println("关闭服务端");
                     QQServer.offLineUser();
                     System.exit(0);
+                    break;
                 }
             }
         }

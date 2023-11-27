@@ -16,7 +16,7 @@ public class EnemyTank extends Tank implements Runnable {
 
             if (this != enemyTank) {
                 switch (this.getDirect()) {
-                    case 0 -> {
+                    case 0: {
                         if (enemyTank.getDirect() == 0 || enemyTank.getDirect() == 1) {
                             if (this.getX() >= enemyTank.getX() &&
                                     this.getX() <= enemyTank.getX() + 90 &&
@@ -45,8 +45,9 @@ public class EnemyTank extends Tank implements Runnable {
                                 return true;
                             }
                         }
+                        break;
                     }
-                    case 1 -> {
+                    case 1 : {
                         if (enemyTank.getDirect() == 0 || enemyTank.getDirect() == 1) {
                             if (this.getX() >= enemyTank.getX() &&
                                     this.getX() <= enemyTank.getX() + 90 &&
@@ -75,8 +76,9 @@ public class EnemyTank extends Tank implements Runnable {
                                 return true;
                             }
                         }
+                        break;
                     }
-                    case 2 -> {
+                    case 2 : {
                         if (enemyTank.getDirect() == 0 || enemyTank.getDirect() == 1) {
                             if (this.getX() >= enemyTank.getX() &&
                                     this.getX() <= enemyTank.getX() + 90 &&
@@ -105,8 +107,9 @@ public class EnemyTank extends Tank implements Runnable {
                                 return true;
                             }
                         }
+                        break;
                     }
-                    case 3 -> {
+                    case 3 : {
                         if (enemyTank.getDirect() == 0 || enemyTank.getDirect() == 1) {
                             if (this.getX() + 60 >= enemyTank.getX() &&
                                     this.getX() + 60 <= enemyTank.getX() + 90 &&
@@ -135,8 +138,8 @@ public class EnemyTank extends Tank implements Runnable {
                                 return true;
                             }
                         }
+                        break;
                     }
-
                 }
             }
         }
@@ -158,18 +161,21 @@ public class EnemyTank extends Tank implements Runnable {
             if (isLive && shots.size() < 3) {
                 Shot shot = null;
                 switch (getDirect()) {
-                    case 0 -> {
+                    case 0 : {
                         shot = new Shot(getX() + 35, getY() - 5, 0);
+                        break;
                     }
-                    case 1 -> {
+                    case 1 : {
                         shot = new Shot(getX() + 35, getY() + 60 + 5, 1);
-
+                        break;
                     }
-                    case 2 -> {
+                    case 2 : {
                         shot = new Shot(getX() - 5, getY() + 35, 2);
+                        break;
                     }
-                    case 3 -> {
+                    case 3 : {
                         shot = new Shot(getX() + 60 + 5, getY() + 35, 3);
+                        break;
                     }
                 }
 
@@ -180,7 +186,7 @@ public class EnemyTank extends Tank implements Runnable {
 
             // 坦克移动
             switch (getDirect()) {
-                case 0 -> {
+                case 0 : {
                     for (int i = 0; i < 30; i++) {
                         if (!tankCollision()) {
                             moveUp();
@@ -191,8 +197,9 @@ public class EnemyTank extends Tank implements Runnable {
                             throw new RuntimeException(e);
                         }
                     }
+                    break;
                 }
-                case 1 -> {
+                case 1 : {
                     for (int i = 0; i < 30; i++) {
                         if (!tankCollision()) {
                             moveDown();
@@ -203,8 +210,9 @@ public class EnemyTank extends Tank implements Runnable {
                             throw new RuntimeException(e);
                         }
                     }
+                    break;
                 }
-                case 2 -> {
+                case 2 : {
                     for (int i = 0; i < 30; i++) {
                         if (!tankCollision()) {
                             moveLeft();
@@ -215,8 +223,9 @@ public class EnemyTank extends Tank implements Runnable {
                             throw new RuntimeException(e);
                         }
                     }
+                    break;
                 }
-                case 3 -> {
+                case 3 : {
                     if (!tankCollision()) {
                         moveRight();
                     }
@@ -227,6 +236,7 @@ public class EnemyTank extends Tank implements Runnable {
                             throw new RuntimeException(e);
                         }
                     }
+                    break;
                 }
             }
 

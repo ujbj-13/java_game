@@ -67,10 +67,18 @@ public class Shot implements Runnable {
             }
 
             switch (direct) {
-                case 0 -> y -= speed;
-                case 1 -> y += speed;
-                case 2 -> x -= speed;
-                case 3 -> x += speed;
+                case 0:
+                    y -= speed;
+                    break;
+                case 1:
+                    y += speed;
+                    break;
+                case 2:
+                    x -= speed;
+                    break;
+                case 3:
+                    x += speed;
+                    break;
             }
 
             System.out.println("x = " + x + "\t" + "y = " + y);

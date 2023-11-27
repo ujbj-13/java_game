@@ -50,7 +50,7 @@ public class QQServer {
         try {
             // 服务端在9999端口监听
             System.out.println("服务端在9999端口监听中...");
-            ss = new ServerSocket(9999);
+            ss = new ServerSocket(9898);
             // 推送消息
             new Thread(QQServerview).start();
 

@@ -3,7 +3,6 @@ package com.ujbj.qqclient.view;
 import com.ujbj.qqclient.service.UserClientService;
 import com.ujbj.util.Utility;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class QQView extends Thread {
@@ -31,7 +30,7 @@ public class QQView extends Thread {
             System.out.print("请选择: ");
             key = Utility.readString(50);
             switch (key) {
-                case "1" -> {
+                case "1":
                     System.out.print("请输入用户名: ");
                     String username = Utility.readString(50);
                     System.out.print("请输入密 码: ");
@@ -50,11 +49,12 @@ public class QQView extends Thread {
                             // 没有下一行才能选择
                             key = Utility.readString(1);
                             switch (key) {
-                                case "1" -> {
+                                case "1": {
                                     // 显示在线用户列表
                                     userClientService.onlineFriendList();
+                                    break;
                                 }
-                                case "2" -> {
+                                case "2": {
                                     // 私聊消息
                                     System.out.print("要发送的用户: ");
                                     String getter = Utility.readString(50);
@@ -63,15 +63,17 @@ public class QQView extends Thread {
                                     String content = Utility.readString(50);
 
                                     userClientService.commMes(username, getter, content);
+                                    break;
                                 }
-                                case "3" -> {
+                                case "3": {
                                     // 群发消息
                                     System.out.print("输入你要群发的内容: ");
                                     String content = Utility.readString(50);
 
                                     userClientService.allMes(username, content);
+                                    break;
                                 }
-                                case "4" -> {
+                                case "4": {
                                     // 发送文件
                                     System.out.print("要发送在线用户: ");
                                     String getter = Utility.readString(50);
@@ -81,20 +83,22 @@ public class QQView extends Thread {
                                     String dest = Utility.readString(50);
 
                                     userClientService.sendFile(username, getter, src, dest);
+                                    break;
                                 }
-                                case "0" -> {
+                                case "0": {
                                     userClientService.logout();
                                     loop = false;
+                                    break;
                                 }
                             }
                         }
                     } else {
                         System.out.println("登录失败");
                     }
-                }
-                case "0" -> {
+                    break;
+                case "0":
                     loop = false;
-                }
+                    break;
             }
         }
     }

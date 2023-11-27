@@ -34,7 +34,7 @@ public class Panel extends JPanel implements KeyListener, Runnable {
         hero = new Hero(10, 100);
 
         switch (key) {
-            case "1" -> {
+            case "1" : {
                 // 初始化敌方坦克
                 for (int i = 0; i < enemyTankSize; i++) {
                     EnemyTank enemyTank = new EnemyTank((i + 1) * 100, 10);
@@ -48,7 +48,7 @@ public class Panel extends JPanel implements KeyListener, Runnable {
                     enemyTanks.add(enemyTank);
                 }
             }
-            case "2" -> {
+            case "2" : {
                 // 初始化敌方坦克
                 for (int i = 0; i < nodes.size(); i++) {
                     EnemyTank enemyTank = new EnemyTank(nodes.get(i).getX(), nodes.get(i).getY());
@@ -61,8 +61,9 @@ public class Panel extends JPanel implements KeyListener, Runnable {
 
                     enemyTanks.add(enemyTank);
                 }
+                break;
             }
-            default -> {
+            default : {
                 System.out.println("输入错误");
             }
         }
@@ -155,13 +156,17 @@ public class Panel extends JPanel implements KeyListener, Runnable {
     public void drawTank(int x, int y, Graphics g, int direct, int type) {
         // 通过坦克类型设置坦克颜色
         switch (type) {
-            case 0 -> g.setColor(Color.CYAN); // 我方
-            case 1 -> g.setColor(Color.GREEN); // 敌方
+            case 0 :
+                g.setColor(Color.CYAN); // 我方
+                break;
+            case 1 :
+                g.setColor(Color.GREEN); // 敌方
+                break;
         }
 
         // 绘制坦克 通过方向 上下左右
         switch (direct) {
-            case 0 -> {
+            case 0: {
                 g.fill3DRect(x, y, 20, 60, false);
                 g.fill3DRect(x + 50, y, 20, 60, false);
 
@@ -169,8 +174,9 @@ public class Panel extends JPanel implements KeyListener, Runnable {
                 g.fillOval(x + 20, y + 15, 30, 30);
 
                 g.drawLine(x + 35, y + 15, x + 35, y - 5);
+                break;
             }
-            case 1 -> {
+            case 1 : {
                 g.fill3DRect(x, y, 20, 60, false);
                 g.fill3DRect(x + 50, y, 20, 60, false);
 
@@ -178,8 +184,9 @@ public class Panel extends JPanel implements KeyListener, Runnable {
                 g.fillOval(x + 20, y + 15, 30, 30);
 
                 g.drawLine(x + 35, y + 60 - 15, x + 35, y + 60 + 5);
+                break;
             }
-            case 2 -> {
+            case 2 : {
                 g.fill3DRect(x, y, 60, 20, false);
                 g.fill3DRect(x, y + 50, 60, 20, false);
 
@@ -187,8 +194,9 @@ public class Panel extends JPanel implements KeyListener, Runnable {
                 g.fillOval(x + 15, y + 20, 30, 30);
 
                 g.drawLine(x + 15, y + 35, x - 5, y + 35);
+                break;
             }
-            case 3 -> {
+            case 3 : {
                 g.fill3DRect(x, y, 60, 20, false);
                 g.fill3DRect(x, y + 50, 60, 20, false);
 
@@ -196,6 +204,7 @@ public class Panel extends JPanel implements KeyListener, Runnable {
                 g.fillOval(x + 15, y + 20, 30, 30);
 
                 g.drawLine(x + 60 - 15, y + 35, x + 60 + 5, y + 35);
+                break;
             }
         }
     }
